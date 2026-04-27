@@ -2,11 +2,11 @@
 
 // put your custom CSS here!
 article {
-  text-align: justify;      /* 两端对齐 */
+  text-align: justify; /* 两端对齐 */
   text-justify: inter-word;
-  hyphens: auto;            /* 自动断句 */
-  font-size: 1.1rem;        /* 稍微加大字号，模仿论文观感 */
-  line-height: 1.7;         /* 增加行间距 */
+  hyphens: auto; /* 自动断句 */
+  font-size: 1.1rem; /* 稍微加大字号，模仿论文观感 */
+  line-height: 1.7; /* 增加行间距 */
 }
 
 // 模拟 LaTeX 定理环境的简单样式

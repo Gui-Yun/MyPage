@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "MyPage",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "Gui-Yun.github.io/MyPage",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -24,9 +24,9 @@ const config: QuartzConfig = {
       cdnCaching: true,
       // quartz.config.ts
       typography: {
-        header: "EB Garamond",   // 标题使用优雅的衬线体
-        body: "EB Garamond",     // 正文使用衬线体
-        code: "JetBrains Mono",  // 代码保持硬核技术感
+        header: "EB Garamond", // 标题使用优雅的衬线体
+        body: "EB Garamond", // 正文使用衬线体
+        code: "JetBrains Mono", // 代码保持硬核技术感
       },
       colors: {
         lightMode: {
