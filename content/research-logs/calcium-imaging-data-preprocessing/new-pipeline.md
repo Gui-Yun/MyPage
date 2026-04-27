@@ -10,7 +10,7 @@ tags:
 
 ---
 
-[pipeline.py](code/pipeline.py)
+[pipeline.py](research-logs/calcium-imaging-data-preprocessing/code/pipeline.py)
 
 ### 1. Stage 1: 神经元位置探测 (Neuron location probing)
 
@@ -74,7 +74,14 @@ tags:
 - **位置**：代码最后 100 行。
 - **动作**：
   - **收集**：从队列里把所有 GPU 算出来的 Trace 拿回来。
-  - **去背景**：执行公式 `Trace = Neuron - 0.24 * Neuropil`。**(这就是你之前问的步骤)**
+  - **去背景**：执行神经毡扣除：
+
+    $$
+    F_{\mathrm{corr}}(t) = F_{\mathrm{neuron}}(t) - 0.24 F_{\mathrm{neuropil}}(t)
+    $$
+
+    **(这就是你之前问的步骤)**
+
   - **合并坐标**：把 35 个块的神经元坐标拼成全脑坐标，处理边缘重叠。
   - **保存**：
     - `global_all_neuron_trace_sub0.24.tif`: 最终的时间序列。

@@ -48,7 +48,7 @@ $\Delta F/F$ 的质量完全取决于 $F_0$ 算得准不准。最简单的方法
 
 1. **定义时间窗口：** 选择一个滑动窗口（例如 30秒 或 60秒）。
    - _对于你的 4Hz 数据，60秒意味着 240 个点。_
-2. **计算百分位数：** 在每个时刻 ，取 $[t - W/2, t + W/2]$ 区间内的所有数据点，计算其 **10% ~ 20% 分位数（Percentile）**。
+2. **计算百分位数：** 在每个时刻 $t$，取 $[t - W/2, t + W/2]$ 区间内的所有数据点，计算其 **10% ~ 20% 分位数（Percentile）**。
    - _为什么不是最小值？_ 最小值对噪声太敏感。
    - _为什么不是中位数？_ 如果神经元发放频率很高，中位数可能代表活跃状态而非静息状态。10-20% 通常被认为是鲁棒的“静息水平”。
 3. **平滑处理：** 得到的 $F_0(t)$ 曲线可能呈阶梯状，通常再进行一次高斯平滑。
@@ -57,7 +57,7 @@ $\Delta F/F$ 的质量完全取决于 $F_0$ 算得准不准。最简单的方法
 
 荧光信号的物理特性决定了**噪声和漂移通常是乘性的（Multiplicative），而不是加性的**。
 
-用百分位 8作为基线，窗口大小设为150帧（约40s），做df / F矫正
+下面的示例用第 8 百分位作为基线，窗口大小设为 151 帧（约 40 s），计算 dF/F。
 
 ```python
 from scipy import ndimage
@@ -71,8 +71,8 @@ for i in range(N):
 deltaF_over_F0 = (neuron_data - F0_dynamic) / F0_dynamic
 ```
 
-![df/F baseline correction example](assets/df-f-correction/image.png)
+![df/F baseline correction example](research-logs/calcium-imaging-data-preprocessing/assets/df-f-correction/image.png)
 
 效果要好于直接调用detrend函数 or 高通滤波（仅考虑信号形状）
 
-![df/F corrected trace example](assets/df-f-correction/image-1.png)
+![df/F corrected trace example](research-logs/calcium-imaging-data-preprocessing/assets/df-f-correction/image-1.png)

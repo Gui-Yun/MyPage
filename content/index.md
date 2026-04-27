@@ -5,7 +5,7 @@ layout: home
 
 ### Profile
 
-B.Eng. in Automation, THU. Ph.D. student at THBI.
+B.Eng. in Automation, THU. Ph.D. student at thbi, THU.
 
 ### Navigation
 

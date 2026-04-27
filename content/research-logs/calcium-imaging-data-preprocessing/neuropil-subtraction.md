@@ -28,7 +28,7 @@ tags:
 当你记录胞体信号 $F_{soma}$ 时，实际上你记录的是：
 
 $$
-F_{measured} = F_{true\_soma} + F_{contamination}
+F_{\mathrm{measured}} = F_{\mathrm{true,soma}} + F_{\mathrm{contamination}}
 $$
 
 这就好比你在聚会上录音（录特定人的说话声），但麦克风不可避免地录进去了周围嘈杂的背景人声（Background noise）。
@@ -54,14 +54,14 @@ Neuropil Subtraction 的标准做法通常包含两步：提取背景和数学�
 修正后的信号 $F_{corrected}(t)$ 计算公式如下：
 
 $$
-F_{corrected}(t) = F_{raw\_soma}(t) - r \times F_{neuropil}(t)
+F_{\mathrm{corrected}}(t) = F_{\mathrm{raw,soma}}(t) - r F_{\mathrm{neuropil}}(t)
 $$
 
-这里的 **r** 是一个非常关键的系数（Neuropil Contamination Ratio）。
+这里的 **$r$** 是一个非常关键的系数（Neuropil Contamination Ratio）。
 
 ---
 
-### 4. 关键参数：系数 $r (r-value)$
+### 4. 关键参数：系数 $r$ (r-value)
 
 你可能会问：_“为什么不是直接减去背景？即 r=1？”_
 
@@ -130,7 +130,9 @@ Neuropil Subtraction 就是用红色减去蓝色（乘以0.7）。
 
 在这个脚本中，扣除公式是：
 
-$$F_{corrected} = F_{raw} - 0.24 \times F_{neuropil}$$
+$$
+F_{\mathrm{corrected}}(t) = F_{\mathrm{raw}}(t) - 0.24 F_{\mathrm{neuropil}}(t)
+$$
 
 (注：脚本里还多了一步归一化，但这不改变本质逻辑)
 
@@ -159,7 +161,11 @@ $$\Delta F/F = \frac{F(t) - F_0}{F_0}$$
 
 - **操作**：找到该神经元整条时间曲线的最小值 `min_val`。如果 `min_val < 0`，则全序列加上 `abs(min_val) + constant`（例如加上一个小的正数如 10 或 100）。
 - 公式：
-  $$F_{shifted}(t) = F_{corrected}(t) - \min(F_{corrected}) + C$$
+
+$$
+F_{\mathrm{shifted}}(t) = F_{\mathrm{corrected}}(t) - \min(F_{\mathrm{corrected}}) + C
+$$
+
 - **理由**：dF/F 反映的是**相对变化量**。只要 $F(t)$ 和 $F_0$ 同时增加了相同的数值，虽然绝对的 dF/F 幅值会被压缩（分母变大了），但**信号的波形、发生时间、信噪比特征都会被完美保留**。这是学术界处理负基线的标准做法。
 
 ### 方法 B：零值截断 (Zero Clipping)

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Lab 2: Multitask Learning, Continual Learning, and Reinforcement Learning"
 tags:
   - course
@@ -23,7 +23,7 @@ Part 1 的核心问题是：同一个 RNN 能不能在多个认知任务之间�
 
 notebook 中打印出的 DM1 trial timing 是：`fixation` 从 200 到 500 ms 均匀采样，`stimulus` 从 200、400、600 ms 中随机选择，`decision` 固定为 200 ms。观察空间是 `Box(-inf, inf, (5,), float32)`，对应 1 个 fixation channel 加上两个 modality 各 2 个刺激 channel；动作空间是 `Discrete(3)`，其中 `0` 是 fixation，`1` 和 `2` 是两个选择。
 
-![](figs/part1_dm1_example_trials.png)
+![](study-notes/brain-machine-intelligence/figs/part1_dm1_example_trials.png)
 
 上图展示了 5 个 DM1 示例 trial。第一行是 observation，可以看到 fixation signal 和不同 stimulus channel 随时间出现；第二行是 action 与 ground truth，绿色虚线表示正确选择，蓝色线表示 agent 动作；后两行分别记录 reward 和 performance。这个图的作用不是展示训练结果，而是帮助理解任务的时序结构：模型在 stimulus 阶段接收证据，在 decision 阶段才应该输出选择。
 
@@ -65,7 +65,7 @@ loss = criterion(outputs_flat, targets_flat)
 
 当前 notebook 在 CPU 上训练了 2000 个 iteration，用时约 3 分 18 秒。训练完成后，loss 曲线整体下降，说明 RNN 能够从混合任务数据中学习到可用的时序决策规则。
 
-![](figs/part1_multitask_training_loss.png)
+![](study-notes/brain-machine-intelligence/figs/part1_multitask_training_loss.png)
 
 ### 多任务评估结果
 
@@ -110,15 +110,15 @@ go -> anti -> dlygo -> dlyanti
 
 训练日志显示，每个任务内部训练 200 个 epoch 后 loss 通常会明显下降。例如 `dlygo` 经常可以从约 `0.1-0.3` 降到接近 `0.001`，`dlyanti` 也能在单个任务阶段内降到很低。但切换任务时 loss 经常重新升高，有些阶段甚至出现很大的瞬时 loss，例如第 9 轮训练 `anti` 时前 100 个 epoch 的平均 loss 达到 `108.94`，随后 200 epoch 平均又降到 `0.33`。这说明模型不是完全学不会当前任务，而是每次任务切换都会对已有参数状态造成明显冲击。
 
-![](figs/part1_continual_task_performance.png)
+![](study-notes/brain-machine-intelligence/figs/part1_continual_task_performance.png)
 
 上图是四个任务的测试 performance 曲线。横轴标签写的是 `Trial`，但更准确地说，它表示“每完成一个任务训练阶段后的评估点”：一共 10 轮，每轮 4 个任务，所以有 40 个评估点。背景颜色表示刚刚训练的是哪个任务。曲线剧烈上下摆动，很多任务在某些阶段可以达到接近 `1.0`，但在训练其他任务后又迅速跌到接近 `0` 或 chance level 附近。这是持续学习中 catastrophic forgetting 的典型表现：模型刚被优化到适合当前任务的参数区域，随后新任务的梯度又把参数推离旧任务所需的区域。
 
-![](figs/part1_continual_average_performance.png)
+![](study-notes/brain-machine-intelligence/figs/part1_continual_average_performance.png)
 
 平均 performance 图进一步说明了这一点。黑线大多数时候围绕 `0.5` 的虚线附近波动，偶尔升到约 `0.6`，也会跌到约 `0.25-0.4`。由于四个任务都是二选一决策，`0.5` 大致可以看作 chance level。也就是说，虽然网络在某些单个任务阶段能把当前任务 loss 压低，但它并没有稳定地同时保持四个任务的能力；从整体平均表现看，持续学习效果明显弱于前面的多任务混合训练。
 
-![](figs/part1_continual_loss_curve.png)
+![](study-notes/brain-machine-intelligence/figs/part1_continual_loss_curve.png)
 
 loss 曲线使用 log scale，并按任务阶段染色。每个彩色区间内部的 loss 大多呈下降趋势，说明在给定当前任务数据时，网络仍然能快速拟合该任务；但相邻区间之间经常出现跳升，尤其是切换到 `anti` 或 `dlyanti` 时更明显。这和 performance 曲线互相印证：问题不在于优化器完全无法训练，而在于顺序训练时新任务不断覆盖旧任务的解。
 
@@ -218,7 +218,7 @@ $$
 
 本次训练完整跑了 `n_updates = 1000`，耗时约 4 分 17 秒。训练结束后生成了四条曲线：episode return、entropy、critic loss 和 actor loss。
 
-![](figs/part2_a2c_training_curves.png)
+![](study-notes/brain-machine-intelligence/figs/part2_a2c_training_curves.png)
 
 Episode return 从一开始约 `-200` 逐步上升，最后达到接近 `100` 的水平，说明 agent 已经从完全不稳定的随机控制学到了更合理的降落策略。虽然还没有达到 LunarLander 通常认为 solved 的 `200` 分标准，但曲线趋势是明显向上的，说明训练是有效的。
 
@@ -231,9 +231,9 @@ Actor loss 一开始是较大的负值，随后快速回到接近 0 到正值附
 训练完成后，notebook 又用训练好的 agent 录制了 3 个 showcase episode，保存为：
 
 ```text
-videos/lunarlander_showcase-episode-0.mp4
-videos/lunarlander_showcase-episode-1.mp4
-videos/lunarlander_showcase-episode-2.mp4
+study-notes/brain-machine-intelligence/videos/lunarlander_showcase-episode-0.mp4
+study-notes/brain-machine-intelligence/videos/lunarlander_showcase-episode-1.mp4
+study-notes/brain-machine-intelligence/videos/lunarlander_showcase-episode-2.mp4
 ```
 
 这说明完整 pipeline 已经跑通：环境交互、rollout 采样、GAE 估计、actor/critic 更新、曲线记录和视频展示都完成了。总体来看，本次 A2C 训练没有数值崩溃，曲线方向合理，但训练步数仍然偏少，最终 return 还没有达到 200 分的 solved 标准。如果要进一步提升，可以增加 `n_updates`，调小 actor learning rate 以减少策略震荡，或者使用 advantage normalization、reward normalization 等技巧提高稳定性。

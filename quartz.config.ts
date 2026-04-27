@@ -24,8 +24,16 @@ const config: QuartzConfig = {
       cdnCaching: true,
       // quartz.config.ts
       typography: {
-        header: "EB Garamond", // 标题使用优雅的衬线体
-        body: "EB Garamond", // 正文使用衬线体
+        header: {
+          name: "Noto Sans SC",
+          weights: [400, 500, 700],
+          includeItalic: false,
+        },
+        body: {
+          name: "Noto Serif SC",
+          weights: [400, 600, 700],
+          includeItalic: false,
+        },
         code: "JetBrains Mono", // 代码保持硬核技术感
       },
       colors: {

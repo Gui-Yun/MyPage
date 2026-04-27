@@ -1,6 +1,22 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+body {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-title,
+.folder-container div > a,
+.folder-container div > button {
+  font-family: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
 article {
   text-align: justify; /* 两端对齐 */
   text-justify: inter-word;

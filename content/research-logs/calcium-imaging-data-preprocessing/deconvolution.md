@@ -34,7 +34,7 @@ $$
 
 其中：
 
-- $C_t$ 是时间 tt 的荧光信号。
+- $C_t$ 是时间 $t$ 的钙浓度或去噪后的荧光状态。
 - $\gamma$ 是钙离子的衰减系数。
 - $S_t$ 是神经元在时间 $t$ 的真实活动（spike）。
 
@@ -46,7 +46,7 @@ $$
 
 这个过程通常采用**最小化问题**的方式，最小化的目标是：
 
-1. **稀疏性约束**：神经元的放电活动 $S_t$ 是稀疏的，意味着大多数时间点没有放电。因此，要求 StS_t 为稀疏的，且非负。
+1. **稀疏性约束**：神经元的放电活动 $S_t$ 是稀疏的，意味着大多数时间点没有放电。因此，要求 $S_t$ 稀疏且非负。
 2. **数据拟合**：荧光信号与放电活动的预测值之间的差异应当尽可能小。
 
 反卷积算法通过迭代优化来实现这一点，通常使用 **L1 正则化** 来促进稀疏性，同时加入噪声模型来限制误差。
@@ -55,8 +55,8 @@ $$
 
 在反卷积过程中，还需要**估计噪声**和**基线漂移**。因为荧光信号通常会包含**背景噪声**和**基线漂移**，这些因素需要被去除，以获得更精确的神经元活动预测。常用的去噪方法包括：
 
-- **噪声估计**：通过估计噪声的标准差（snsn）来对信号进行去噪。
-- **基线估计**：估计荧光信号的基线（blbl），并从信号中去除它。
+- **噪声估计**：通过估计噪声标准差 $s_n$ 来对信号进行去噪。
+- **基线估计**：估计荧光信号的基线 $b$，并从信号中去除它。
 
 ### 4. **算法实现：方法概览**
 
@@ -231,7 +231,7 @@ def constrained_foopsi(fluor, bl=None,  c1=None, g=None,  sn=None, p=None, metho
 
    OASIS 是一种优化方法，专门用于处理钙成像信号中的噪声和稀疏性问题。
 
-3. **反卷积过程**：根据选择的去卷积方法（例如OASIS），算法会优化信号并恢复出去噪后的钙信号 cc 以及神经元的放电活动 SS。
+3. **反卷积过程**：根据选择的去卷积方法（例如 OASIS），算法会优化信号并恢复出去噪后的钙信号 $c$ 以及神经元的放电活动 $s$。
    - 通过**L1正则化**和**噪声约束**进行反卷积。
    - 同时，利用**最小二乘法**拟合荧光信号与去噪后的信号之间的差异。
 4. **输出结果**：
@@ -246,15 +246,19 @@ def constrained_foopsi(fluor, bl=None,  c1=None, g=None,  sn=None, p=None, metho
 去卷积的数学模型可以简化为以下优化问题：
 
 $$
-\min_{S} \| S \|_1 \quad \text{subject to} \quad \| C - (S * h) \|_2^2 \leq \sigma^2
+\min_{\mathbf{s}, \mathbf{c}, b} \|\mathbf{s}\|_1
+\quad \text{subject to} \quad
+\|\mathbf{y} - \mathbf{c} - b\mathbf{1}\|_2^2 \leq \sigma^2 T,
+\quad s_t = c_t - \gamma c_{t-1} \geq 0
 $$
 
 其中：
 
-- $\| S \|_1$ 是 S 的 L1 范数，用于促进稀疏性（即大部分时间点没有放电活动）。
-- $C$ 是原始的荧光信号。
-- $S * h$ 表示 $S$被自回归核 $h$ 卷积后的信号。
-- $\sigma^2$ 是噪声的方差。
+- $\|\mathbf{s}\|_1$ 是 spike 序列的 L1 范数，用于促进稀疏性（即大部分时间点没有放电活动）。
+- $\mathbf{y}$ 是观测到的荧光信号。
+- $\mathbf{c}$ 是去噪后的钙信号，$b$ 是基线项。
+- $s_t = c_t - \gamma c_{t-1}$ 描述 AR(1) 模型下的非负放电事件。
+- $\sigma^2$ 是噪声方差，$T$ 是时间点数量。
 
 ---
 
@@ -307,32 +311,32 @@ for i in range(test_sample):
 
 ## 1. 前置条件：基线矫正
 
-dF / F的矫正是相当必要的，因为基线水平会严重影响反卷积出来spikes的密度：
+dF/F 矫正是相当必要的，因为基线水平会严重影响反卷积出来 spikes 的密度：
 
 直接对原始信号做反卷积：
 
-![image.png](assets/deconvolution/image.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image.png)
 
-shi经过矫正过后的反卷积
+经过 dF/F 矫正后的反卷积：
 
-![image.png](assets/deconvolution/image-1.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-1.png)
 
 ## 2. Trial上的形状对比
 
-![image.png](assets/deconvolution/image-2.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-2.png)
 
-![image.png](assets/deconvolution/image-3.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-3.png)
 
-![image.png](assets/deconvolution/image-4.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-4.png)
 
 ## 3. 对后续分析的影响
 
-![image.png](assets/deconvolution/image-5.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-5.png)
 
-![image.png](assets/deconvolution/image-6.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-6.png)
 
-![image.png](assets/deconvolution/image-7.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-7.png)
 
-![image.png](assets/deconvolution/image-8.png)
+![image.png](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/image-8.png)
 
-![img_v3_02sk_032d1b57-6dc5-4137-aa3b-ee215afa8a4g.jpg](assets/deconvolution/img_v3_02sk_032d1b57-6dc5-4137-aa3b-ee215afa8a4g.jpg)
+![img_v3_02sk_032d1b57-6dc5-4137-aa3b-ee215afa8a4g.jpg](research-logs/calcium-imaging-data-preprocessing/assets/deconvolution/img_v3_02sk_032d1b57-6dc5-4137-aa3b-ee215afa8a4g.jpg)
