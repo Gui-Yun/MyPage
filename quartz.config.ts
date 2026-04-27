@@ -22,10 +22,11 @@ const config: QuartzConfig = {
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
+      // quartz.config.ts
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "EB Garamond",   // 标题使用优雅的衬线体
+        body: "EB Garamond",     // 正文使用衬线体
+        code: "JetBrains Mono",  // 代码保持硬核技术感
       },
       colors: {
         lightMode: {
