@@ -1,17 +1,20 @@
 ---
-title: "Hi, I'm [Your Name]"
+title: "Oswin"
 layout: home
 ---
 
-### 🔬 Research Interests
+### Profile
 
-- **Computational Neuroscience:** Population coding in Mouse V1.
-- **AI Workflow:** Automating academic research with Obsidian & Quartz.
+B.Eng. in Automation, THU. Ph.D. student at THBI.
 
-### 📚 Quick Links
+### Navigation
 
-- [[About Me|CV]] | [[Research|Projects]] | [[Notes/Index|Technical Notes]]
+- [[fragments/index|Fragments]]
+- [[study-notes/index|Study Notes]]
+- [[technical-docs/index|Technical Docs]]
 
----
+### Research Interests
 
-> "Handing over time to thinking."
+- Embodied Intelligence
+- Neuroscience
+- Computational Models
