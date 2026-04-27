@@ -23,8 +23,21 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "EB Garamond", // 标题使用优雅的衬线体
-        body: "EB Garamond", // 正文使用衬线体
+        title: {
+          name: "EB Garamond",
+          weights: [400, 500, 600, 700],
+          includeItalic: false,
+        },
+        header: {
+          name: "EB Garamond",
+          weights: [400, 500, 600, 700],
+          includeItalic: false,
+        },
+        body: {
+          name: "EB Garamond",
+          weights: [400, 500, 600],
+          includeItalic: true,
+        },
         code: "JetBrains Mono", // 代码保持硬核技术感
       },
       colors: {

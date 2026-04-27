@@ -16,8 +16,18 @@ h6,
 .folder-container div > a,
 .folder-container div > button {
   font-family:
-    "EB Garamond", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei",
-    sans-serif;
+    "EB Garamond", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+.page-title a,
+.article-title,
+article h1,
+article h2,
+article h3 {
+  font-family:
+    "EB Garamond", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 article {
