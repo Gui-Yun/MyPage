@@ -1,4 +1,12 @@
 
+---
+title: "V1 的功能与角色重构 (Zhaoping, 2026)"
+modified: 2026-04-28
+tags:
+  - paper-reading
+  - neuroscience
+---
+
 
 > <span style="color: rgb(31, 31, 31)"><span style="background-color: none">Zhaoping, L. (2026). What are the functions of primary visual cortex (V1)? arXiv:2604.22716.</span></span>
 
