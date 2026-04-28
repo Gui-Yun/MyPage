@@ -5,12 +5,7 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [
-    Component.ConditionalRender({
-      component: Component.HomeUpdates(),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-  ],
+  afterBody: [],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
@@ -29,6 +24,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.TagList(),
     Component.ContentMeta(),
+    Component.ConditionalRender({
+      component: Component.HomeUpdates(),
+      condition: (page) => page.fileData.slug === "index",
+    }),
   ],
   left: [
     Component.PageTitle(),
