@@ -16,7 +16,7 @@ tags:
 
 <span style="color: rgb(31, 31, 31)"><span style="background-color: none">文章建立在一个绝对的物理约束之上：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">信息处理瓶颈</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">。大脑的代谢能量、神经元空间和计算时间均有限，仅有极少部分视觉输入（主要在注视中心）能进入最终的识别阶段。视觉系统的所有分工，本质上都是对这个瓶颈的妥协与优化。</span></span>
 
-![\<img alt="" data-attachment-key="BEDJPLVE" data-annotation="%7B%22attachmentURI%22%3A%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FIYXDJLIU%22%2C%22annotationKey%22%3A%22VWQ5EZ7I%22%2C%22color%22%3A%22%23ffd400%22%2C%22pageLabel%22%3A%222%22%2C%22position%22%3A%7B%22pageIndex%22%3A1%2C%22rects%22%3A%5B%5B51.993%2C464.526%2C515.055%2C730.448%5D%5D%7D%2C%22citationItem%22%3A%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%222%22%7D%7D" width="772" height="443" src="attachments/BEDJPLVE.png" ztype="zimage"> | 772](attachments/BEDJPLVE.png)\
+![V1 paper figure, page 2](attachments/BEDJPLVE.png)
 <span class="citation" data-citation="%7B%22citationItems%22%3A%5B%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%222%22%7D%5D%2C%22properties%22%3A%7B%7D%7D" ztype="zcitation">(<span class="citation-item"><a href="zotero://select/library/items/DUWIWZLR">Zhaoping, 2026, p. 2</a></span>)</span>
 
 ### <span style="color: rgb(31, 31, 31)"><span style="background-color: none">2. 理论框架：CPD 与 V1SH</span></span>
@@ -44,5 +44,5 @@ tags:
 <span style="color: rgb(31, 31, 31)"><span style="background-color: none">文章通过多个现象证明了反馈机制在解决“瓶颈副作用”中的关键作用。例如，</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">翻转倾斜错觉</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">与</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">反转深度错觉</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">本质上是外围视野缺乏关键信号 $r_b, r_c$ 时的错误多数投票推断。而在中央视野，大脑正是通过向 V1 查询这些被丢弃的信号来“否决”错误假设，从而消除错觉。缺乏这种反馈，就会导致视觉拥挤。</span></span>
 
 ***
-![\<img alt="" data-attachment-key="KINIFDWU" data-annotation="%7B%22attachmentURI%22%3A%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FIYXDJLIU%22%2C%22annotationKey%22%3A%226G6FHMNQ%22%2C%22color%22%3A%22%23ffd400%22%2C%22pageLabel%22%3A%224%22%2C%22position%22%3A%7B%22pageIndex%22%3A3%2C%22rects%22%3A%5B%5B47.66%2C300.261%2C506.389%2C726.494%5D%5D%7D%2C%22citationItem%22%3A%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%224%22%7D%7D" width="765" height="711" src="attachments/KINIFDWU.png" ztype="zimage"> | 765](attachments/KINIFDWU.png)\
+![V1 paper figure, page 4](attachments/KINIFDWU.png)
 <span class="citation" data-citation="%7B%22citationItems%22%3A%5B%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%224%22%7D%5D%2C%22properties%22%3A%7B%7D%7D" ztype="zcitation">(<span class="citation-item"><a href="zotero://select/library/items/DUWIWZLR">Zhaoping, 2026, p. 4</a></span>)</span>
