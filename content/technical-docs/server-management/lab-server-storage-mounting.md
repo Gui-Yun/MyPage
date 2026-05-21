@@ -33,9 +33,7 @@ _(注：此方案仅适用于纯 Linux 内网互信环境，在涉及 Windows �
 
 部署依赖于 `erichough/nfs-server` 镜像。若服务器拉取超时，可通过本地 VPN 环境使用 Docker Desktop 拉取后转移至服务器。
 
-Bash
-
-```
+```bash
 # 本地拉取并导出
 docker pull erichough/nfs-server
 docker save -o nfs-server.tar erichough/nfs-server
@@ -54,9 +52,7 @@ docker run -d \
 
 **Linux 客户端挂载命令：**
 
-Bash
-
-```
+```bash
 sudo mkdir -p mydata
 sudo mount -t nfs <server-lan-ip>:/ mydata
 ```
@@ -73,9 +69,7 @@ Samba 方案的核心难点在于**跨系统与跨容器的权限一致性**。�
 
 1. **端口与防火墙放行**：确认宿主机 445 端口未被占用，并永久放行 Samba 服务。
 
-   Bash
-
-   ```
+   ```bash
    systemctl start firewalld
    firewall-cmd --permanent --add-service=samba
    firewall-cmd --reload
@@ -83,9 +77,7 @@ Samba 方案的核心难点在于**跨系统与跨容器的权限一致性**。�
 
 2. **确认 Docker 卷真实路径**：若要共享其他容器内的数据（如 `ssd_data`），切忌直接挂载容器内的软链接。需在宿主机使用 `docker inspect` 查找真实物理路径。
 
-   Bash
-
-   ```
+   ```bash
    docker inspect --format='{{range .Mounts}}{{.Source}} -> {{.Destination}}{{println}}{{end}}' mice
    # 输出示例: /nvmessd/docker/volumes/mice_data/_data -> /ssd_data
    ```
@@ -96,9 +88,7 @@ Samba 方案的核心难点在于**跨系统与跨容器的权限一致性**。�
 
 已知内部处理容器（如 `mice`）的运行用户 UID 和 GID 均为 `1000`。
 
-Bash
-
-```
+```bash
 docker run -it -d \
   --name samba \
   --restart=always \
@@ -124,9 +114,7 @@ docker run -it -d \
 
 新部署的权限规则只对新文件生效。历史由 Root 创建的文件仍会阻碍访问，需在宿主机执行一次性的权限下放：
 
-Bash
-
-```
+```bash
 chown -R 1000:1000 /beegfs_hdd/data/nfs_share/share/micelab/all_data
 chown -R 1000:1000 /nvmessd/docker/volumes/mice_data/_data
 ```

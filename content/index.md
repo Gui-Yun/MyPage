@@ -19,6 +19,8 @@ This site collects research logs, course notes, technical documentation, and sma
 
 ### Recent Threads
 
+- [[fragments/实验想法：随机度与神经表征|实验想法：随机度与神经表征]]
+- [[fragments/灵感碎片：反因果的闭环稳态|灵感碎片：反因果的闭环稳态]]
 - [[fragments/折纸渲染数据结构设计记录|折纸渲染数据结构设计记录]]
 - [[research-logs/paper-reading-notes/index|Paper Reading Notes]]
 - [[research-logs/Liulab 第一届科研绘图设计比赛|Liulab 第一届科研绘图设计比赛]]

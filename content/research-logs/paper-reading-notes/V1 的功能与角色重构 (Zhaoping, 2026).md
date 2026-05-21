@@ -1,4 +1,3 @@
-
 ---
 title: "V1 的功能与角色重构 (Zhaoping, 2026)"
 modified: 2026-04-28
@@ -6,7 +5,6 @@ tags:
   - paper-reading
   - neuroscience
 ---
-
 
 > <span style="color: rgb(31, 31, 31)"><span style="background-color: none">Zhaoping, L. (2026). What are the functions of primary visual cortex (V1)? arXiv:2604.22716.</span></span>
 
@@ -23,9 +21,9 @@ tags:
 
 <span style="color: rgb(31, 31, 31)"><span style="background-color: none">为了应对上述瓶颈，作者提出了两大核心框架，重新定义了视觉处理的过程：</span></span>
 
-*   **<span style="color: rgb(31, 31, 31)"><span style="background-color: none">中央-外围二分法 (CPD)：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none"> 视觉被拆分为外围视野的“观察 (Looking)”与中央视野的“看清 (Seeing)”。外围追求速度与筛选，中央追求高分辨率与精确识别。</span></span>
+- **<span style="color: rgb(31, 31, 31)"><span style="background-color: none">中央-外围二分法 (CPD)：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none"> 视觉被拆分为外围视野的“观察 (Looking)”与中央视野的“看清 (Seeing)”。外围追求速度与筛选，中央追求高分辨率与精确识别。</span></span>
 
-*   **<span style="color: rgb(31, 31, 31)"><span style="background-color: none">V1 显著性假说 (V1SH)：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none"> V1 不仅是特征提取器，更是引导眼跳的“运动皮层”。显著性不依赖复杂的语义解码，而是由 V1 的最高神经响应直接表征。借助</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">同特征抑制</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">，独特的局部特征（单例）能产生强烈的初始响应，形成自下而上的显著性图。</span></span>
+- **<span style="color: rgb(31, 31, 31)"><span style="background-color: none">V1 显著性假说 (V1SH)：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none"> V1 不仅是特征提取器，更是引导眼跳的“运动皮层”。显著性不依赖复杂的语义解码，而是由 V1 的最高神经响应直接表征。借助</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">同特征抑制</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">，独特的局部特征（单例）能产生强烈的初始响应，形成自下而上的显著性图。</span></span>
 
 ### <span style="color: rgb(31, 31, 31)"><span style="background-color: none">3. V1 的三大核心任务</span></span>
 
@@ -43,6 +41,7 @@ tags:
 
 <span style="color: rgb(31, 31, 31)"><span style="background-color: none">文章通过多个现象证明了反馈机制在解决“瓶颈副作用”中的关键作用。例如，</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">翻转倾斜错觉</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">与</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">反转深度错觉</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">本质上是外围视野缺乏关键信号 $r_b, r_c$ 时的错误多数投票推断。而在中央视野，大脑正是通过向 V1 查询这些被丢弃的信号来“否决”错误假设，从而消除错觉。缺乏这种反馈，就会导致视觉拥挤。</span></span>
 
-***
+---
+
 ![V1 paper figure, page 4](attachments/KINIFDWU.png)
 <span class="citation" data-citation="%7B%22citationItems%22%3A%5B%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%224%22%7D%5D%2C%22properties%22%3A%7B%7D%7D" ztype="zcitation">(<span class="citation-item"><a href="zotero://select/library/items/DUWIWZLR">Zhaoping, 2026, p. 4</a></span>)</span>

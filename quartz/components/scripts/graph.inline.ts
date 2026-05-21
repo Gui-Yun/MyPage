@@ -528,7 +528,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     if (stopAnimation) return
     for (const n of nodeRenderData) {
       const { x, y } = n.simulationData
-      if (!x || !y) continue
+      if (x == null || y == null) continue
       n.gfx.position.set(x + width / 2, y + height / 2)
       if (n.label) {
         n.label.position.set(x + width / 2, y + height / 2)
@@ -596,8 +596,17 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   })
 
   const containers = [...document.getElementsByClassName("global-graph-outer")] as HTMLElement[]
+  let globalGraphEscapeHandlersRegistered = false
   async function renderGlobalGraph() {
+    cleanupGlobalGraphs()
     const slug = getFullSlug(window)
+    if (!globalGraphEscapeHandlersRegistered) {
+      for (const container of containers) {
+        registerEscapeHandler(container, hideGlobalGraph)
+      }
+      globalGraphEscapeHandlersRegistered = true
+    }
+
     for (const container of containers) {
       container.classList.add("active")
       const sidebar = container.closest(".sidebar") as HTMLElement
@@ -606,7 +615,6 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       }
 
       const graphContainer = container.querySelector(".global-graph-container") as HTMLElement
-      registerEscapeHandler(container, hideGlobalGraph)
       if (graphContainer) {
         globalGraphCleanups.push(await renderGraph(graphContainer, slug))
       }

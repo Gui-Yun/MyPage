@@ -36,6 +36,7 @@ Component.Graph({
     opacityScale: 1, // how quickly do we fade out the labels when zooming out?
     removeTags: [], // what tags to remove from the graph
     showTags: true, // whether to show tags in the graph
+    focusOnHover: false, // whether to focus on the hovered node and its neighbours
     enableRadial: false, // whether to constrain the graph, similar to Obsidian
   },
   globalGraph: {
@@ -44,12 +45,13 @@ Component.Graph({
     depth: -1,
     scale: 0.9,
     repelForce: 0.5,
-    centerForce: 0.3,
+    centerForce: 0.2,
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
     removeTags: [], // what tags to remove from the graph
     showTags: true, // whether to show tags in the graph
+    focusOnHover: true, // whether to focus on the hovered node and its neighbours
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
   },
 })

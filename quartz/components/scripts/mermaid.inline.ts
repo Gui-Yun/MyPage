@@ -158,7 +158,8 @@ class DiagramPanZoom {
   }
 
   private resetTransform() {
-    const svg = this.content.querySelector("svg")!
+    const svg = this.content.querySelector("svg")
+    if (!svg) return
     const rect = svg.getBoundingClientRect()
     const width = rect.width / this.scale
     const height = rect.height / this.scale
@@ -272,7 +273,9 @@ document.addEventListener("nav", async () => {
       removeAllChildren(content)
 
       // Clone the mermaid content
-      const mermaidContent = codeBlock.querySelector("svg")!.cloneNode(true) as SVGElement
+      const svg = codeBlock.querySelector("svg")
+      if (!svg) return
+      const mermaidContent = svg.cloneNode(true) as SVGElement
       content.appendChild(mermaidContent)
 
       // Show container
