@@ -7,5 +7,20 @@ tsconfig.tsbuildinfo
 .obsidian
 .quartz-cache
 private/
+**/.claude/
 .replit
 replit.nix
+
+# Local research artifacts and downloaded repositories
+/demo_signalflow_repo2/
+/timesfm_repo/
+/thu_screens/
+/.claude_resources.json
+/final.pdf
+/ldr_do.py
+/paper.xml
+/preprint.pdf
+/preprint.txt
+/raspberry-pi-40pin-pinout.png
+/thu_2024_handbook.pdf
+/sources/

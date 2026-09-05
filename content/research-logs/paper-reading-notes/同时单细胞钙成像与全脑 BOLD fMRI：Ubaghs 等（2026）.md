@@ -12,7 +12,7 @@ tags:
 
 # 同时单细胞钙成像与全脑 BOLD fMRI：Ubaghs 等（2026）
 
-*论文阅读笔记：从单细胞神经活动、局部血管组织到全脑 BOLD 的跨尺度联系。*
+_论文阅读笔记：从单细胞神经活动、局部血管组织到全脑 BOLD 的跨尺度联系。_
 
 > Ubaghs, R. L. E. M., Boehringer, R., Marks, M., Hesse, H. K., Yanik, M. F., Zerbi, V., & Grewe, B. F. (2026). _Simultaneous single-cell calcium imaging of neuronal population activity and brain-wide BOLD fMRI_. Nature Methods, 23, 1637–1646. [DOI: 10.1038/s41592-026-03154-2](https://doi.org/10.1038/s41592-026-03154-2)
 

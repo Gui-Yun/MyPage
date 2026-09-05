@@ -13,7 +13,7 @@ tags:
 
 # Ubaghs 2026：局部 CFU 模型探索
 
-*基于公开 MAT 文件，对单细胞 Ca、局部血管信号和 BOLD 之间的局部观测关系进行探索性建模。*
+_基于公开 MAT 文件，对单细胞 Ca、局部血管信号和 BOLD 之间的局部观测关系进行探索性建模。_
 
 ---
 
@@ -64,10 +64,10 @@ flowchart LR
 局部模型的形式为：
 
 \[
-\hat y_t = \beta_0 + \sum_{\ell=0}^{L} h^{\mathrm{Ca}}_\ell c_{t-\ell} + \sum_{\ell=0}^{L} h^{\mathrm{vessel}}_\ell v_{t-\ell} + \beta_m m_t,
+\hat y*t = \beta_0 + \sum*{\ell=0}^{L} h^{\mathrm{Ca}}_\ell c_{t-\ell} + \sum*{\ell=0}^{L} h^{\mathrm{vessel}}*\ell v\_{t-\ell} + \beta_m m_t,
 \]
 
-其中 \(c_t\) 是去卷积 Ca 群体活动，\(v_t\) 是血管宽度 proxy，\(m_t\) 是运动协变量，\(h_\ell\) 是待估计的滞后响应核。这里的滞后核是对 Balloon–Windkessel 观测层的低维近似，而不是完整的生理机制模型。
+其中 \(c*t\) 是去卷积 Ca 群体活动，\(v_t\) 是血管宽度 proxy，\(m_t\) 是运动协变量，\(h*\ell\) 是待估计的滞后响应核。这里的滞后核是对 Balloon–Windkessel 观测层的低维近似，而不是完整的生理机制模型。
 
 代码位于 [`ubaghs_local_cfu.py`](code/ubaghs_local_cfu.py)。代码按照 MATLAB/MAT 数据结构读取三个文件，并将结果输出到 [`results.csv`](code/outputs/results.csv) 和 [`local_cfu_model.png`](code/outputs/local_cfu_model.png)。
 
@@ -75,17 +75,17 @@ flowchart LR
 
 分析对公开数据中的 9 个共同 session 进行最低限度拟合。需要注意，其中包含细胞数量较少、并非论文神经分析主样本的 session，因此结果仅作为方法诊断，不应与论文报告的 5 只高质量神经数据动物直接等同。特别加入了两个替代基线：只用运动参数的模型，以及同时循环平移 Ca/血管特征的时间错位模型。
 
-| 模型 | 中位 held-out Pearson \(r\) | 备注 |
-| --- | ---: | --- |
-| Ca-only | 0.17 | 去卷积 Ca 滞后项 |
-| 血管-only | 0.02 | 半高宽 proxy |
-| 运动-only | 0.36 | 六维 MRI 运动参数的平均 trace |
-| Ca + 血管 | 0.29 | 不含运动参数 |
-| Ca + 血管 + 运动 | 0.29 | 完整探索模型 |
-| 循环平移 null | 0.14 | 保留边际分布和部分自相关 |
+| 模型             | 中位 held-out Pearson \(r\) | 备注                          |
+| ---------------- | --------------------------: | ----------------------------- |
+| Ca-only          |                        0.17 | 去卷积 Ca 滞后项              |
+| 血管-only        |                        0.02 | 半高宽 proxy                  |
+| 运动-only        |                        0.36 | 六维 MRI 运动参数的平均 trace |
+| Ca + 血管        |                        0.29 | 不含运动参数                  |
+| Ca + 血管 + 运动 |                        0.29 | 完整探索模型                  |
+| 循环平移 null    |                        0.14 | 保留边际分布和部分自相关      |
 
 ![局部 Ca 到 BOLD 的探索性模型结果](code/outputs/local_cfu_model.png)
-*图：灰线为最佳 session 的 ROI ΔBOLD，红线为连续时间块交叉验证的局部模型预测；下方同时显示 Ca-only、运动-only 和完整模型的 held-out 相关。*
+_图：灰线为最佳 session 的 ROI ΔBOLD，红线为连续时间块交叉验证的局部模型预测；下方同时显示 Ca-only、运动-only 和完整模型的 held-out 相关。_
 
 完整模型的相关系数在 9 个 session 中有 5 个高于 Ca-only，但只有 1 个 session 高于运动-only；NRMSE 只有 3 个 session 改善。最佳单个 session 的完整模型 \(r\) 约为 0.66，但同一 session 的运动-only \(r\) 约为 0.77，循环平移 null 也达到约 0.53。
 
@@ -123,9 +123,14 @@ flowchart LR
 
 ## References
 
-[^1]: Ubaghs, R. L. E. M. et al. (2026). “Simultaneous single-cell calcium imaging of neuronal population activity and brain-wide BOLD fMRI.” *Nature Methods*. https://doi.org/10.1038/s41592-026-03154-2
-[^2]: Buxton, R. B., Wong, E. C. & Frank, L. R. (1998). “Dynamics of blood flow and oxygenation changes during brain activation: the balloon model.” *Magnetic Resonance in Medicine*. https://doi.org/10.1002/mrm.1910390602
-[^3]: Friston, K. J. et al. (2000). “Nonlinear responses in fMRI: the Balloon model, Volterra kernels, and other hemodynamics.” *NeuroImage*. https://doi.org/10.1006/nimg.2000.0630
-[^4]: Rosa, M. J., Kilner, J. & Penny, W. D. (2011). “Bayesian comparison of neurovascular coupling models using EEG-fMRI.” *PLoS Computational Biology*. https://doi.org/10.1371/journal.pcbi.1002070
-[^5]: Sten, S. et al. (2023). “A quantitative model for human neurovascular coupling with translated mechanisms from animals.” *PLoS Computational Biology*. https://doi.org/10.1371/journal.pcbi.1010818
-[^6]: Drew, P. J. (2019). “Vascular and neural basis of the BOLD signal.” *Current Opinion in Neurobiology*. https://doi.org/10.1016/j.conb.2019.06.004
+[^1]: Ubaghs, R. L. E. M. et al. (2026). “Simultaneous single-cell calcium imaging of neuronal population activity and brain-wide BOLD fMRI.” _Nature Methods_. https://doi.org/10.1038/s41592-026-03154-2
+
+[^2]: Buxton, R. B., Wong, E. C. & Frank, L. R. (1998). “Dynamics of blood flow and oxygenation changes during brain activation: the balloon model.” _Magnetic Resonance in Medicine_. https://doi.org/10.1002/mrm.1910390602
+
+[^3]: Friston, K. J. et al. (2000). “Nonlinear responses in fMRI: the Balloon model, Volterra kernels, and other hemodynamics.” _NeuroImage_. https://doi.org/10.1006/nimg.2000.0630
+
+[^4]: Rosa, M. J., Kilner, J. & Penny, W. D. (2011). “Bayesian comparison of neurovascular coupling models using EEG-fMRI.” _PLoS Computational Biology_. https://doi.org/10.1371/journal.pcbi.1002070
+
+[^5]: Sten, S. et al. (2023). “A quantitative model for human neurovascular coupling with translated mechanisms from animals.” _PLoS Computational Biology_. https://doi.org/10.1371/journal.pcbi.1010818
+
+[^6]: Drew, P. J. (2019). “Vascular and neural basis of the BOLD signal.” _Current Opinion in Neurobiology_. https://doi.org/10.1016/j.conb.2019.06.004
