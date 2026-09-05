@@ -6,6 +6,9 @@ tags:
   - samba
 ---
 
+> [!important] 现行生产架构
+> 本文保留早期单节点 Samba 部署与排障记录。2026-08-19 起，生产环境已迁移到 [[technical-docs/server-management/jiagpu-unified-smb-storage-gateway|JIAGPU 统一 SMB 存储网关]]。
+
 ## 1. 背景与环境拓扑
 
 为了将实验室服务器 (`jiagpu3`) 上的大容量存储数据及特定容器的数据卷，稳定地挂载到内网 Windows 工作站及其他 Linux 计算节点，以便于进行数据分析和可视化处理。

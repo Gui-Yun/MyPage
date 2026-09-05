@@ -84,7 +84,7 @@ flowchart LR
 | Ca + 血管 + 运动 |                        0.29 | 完整探索模型                  |
 | 循环平移 null    |                        0.14 | 保留边际分布和部分自相关      |
 
-![局部 Ca 到 BOLD 的探索性模型结果](code/outputs/local_cfu_model.png)
+![局部 Ca 到 BOLD 的探索性模型结果](research-logs/paper-reading-notes/code/outputs/local_cfu_model.png)
 _图：灰线为最佳 session 的 ROI ΔBOLD，红线为连续时间块交叉验证的局部模型预测；下方同时显示 Ca-only、运动-only 和完整模型的 held-out 相关。_
 
 完整模型的相关系数在 9 个 session 中有 5 个高于 Ca-only，但只有 1 个 session 高于运动-only；NRMSE 只有 3 个 session 改善。最佳单个 session 的完整模型 \(r\) 约为 0.66，但同一 session 的运动-only \(r\) 约为 0.77，循环平移 null 也达到约 0.53。

@@ -143,7 +143,7 @@ run('code/signalflow_demo_small.m')
 
 结果：重新计算出的层级与仓库内作者保存的参考层级相关 **r = 0.985237**，RMSE = **0.345922**。这说明作者公开的层级计算函数和随仓库提供的 MMP-360 iEC 数据在本机可以正常运行，并且能够重现其核心层级图；它不是独立的生物学验证，因为输入矩阵和参考结果都来自作者仓库。
 
-![最小复现测试汇总图](attachments/signalflow_hierarchy_demo.png)
+![最小复现测试汇总图](research-logs/paper-reading-notes/attachments/signalflow_hierarchy_demo.png)
 
 ## 与上一篇 Ubaghs 2026 的并读
 

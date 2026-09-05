@@ -69,7 +69,7 @@ flowchart LR
 
 论文的 source data 公开在 Figshare，但论文同时说明，完整原始成像数据和预处理活动数据因体量与复杂度较大，需要向作者申请。当前 Figshare 数据记录是 v2，总大小约 3.08 GB；本地检查了其中四个较小文件，没有下载约 3.03 GB 的 `mri_roi_boot.mat`。[^1]
 
-![Ubaghs 2026 MAT 文件结构与代表性信号](assets/ubaghs-2026-mat-preview.png)
+![Ubaghs 2026 MAT 文件结构与代表性信号](research-logs/paper-reading-notes/assets/ubaghs-2026-mat-preview.png)
 _图：从公开 MAT 文件中抽查的一个 session（`d04112022_bi1809`）。A 为显微镜平均图像和细胞空间 map，B 为提取后的细胞时间序列，C 为细胞与血管剖面的归一化示意，D 为 MRI ROI 时间序列。图中信号只做了可视化归一化，不是对论文结论的重新分析。_
 
 实际看到的文件形式比较清楚：`mri.mat`、`microscopy.mat` 和 `vasculature.mat` 都以 `data_out.<session>` 的 MATLAB struct 组织；`allRegCoord.mat` 则是一个包含 6 个元素的 `allRegCoords` object 数组。

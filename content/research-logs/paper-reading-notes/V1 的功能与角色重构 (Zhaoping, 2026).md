@@ -14,7 +14,7 @@ tags:
 
 <span style="color: rgb(31, 31, 31)"><span style="background-color: none">文章建立在一个绝对的物理约束之上：</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">信息处理瓶颈</span></span>**<span style="color: rgb(31, 31, 31)"><span style="background-color: none">。大脑的代谢能量、神经元空间和计算时间均有限，仅有极少部分视觉输入（主要在注视中心）能进入最终的识别阶段。视觉系统的所有分工，本质上都是对这个瓶颈的妥协与优化。</span></span>
 
-![V1 paper figure, page 2](attachments/BEDJPLVE.png)
+![V1 paper figure, page 2](research-logs/paper-reading-notes/attachments/BEDJPLVE.png)
 <span class="citation" data-citation="%7B%22citationItems%22%3A%5B%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%222%22%7D%5D%2C%22properties%22%3A%7B%7D%7D" ztype="zcitation">(<span class="citation-item"><a href="zotero://select/library/items/DUWIWZLR">Zhaoping, 2026, p. 2</a></span>)</span>
 
 ### <span style="color: rgb(31, 31, 31)"><span style="background-color: none">2. 理论框架：CPD 与 V1SH</span></span>
@@ -43,5 +43,5 @@ tags:
 
 ---
 
-![V1 paper figure, page 4](attachments/KINIFDWU.png)
+![V1 paper figure, page 4](research-logs/paper-reading-notes/attachments/KINIFDWU.png)
 <span class="citation" data-citation="%7B%22citationItems%22%3A%5B%7B%22uris%22%3A%5B%22http%3A%2F%2Fzotero.org%2Fusers%2F11213488%2Fitems%2FDUWIWZLR%22%5D%2C%22locator%22%3A%224%22%7D%5D%2C%22properties%22%3A%7B%7D%7D" ztype="zcitation">(<span class="citation-item"><a href="zotero://select/library/items/DUWIWZLR">Zhaoping, 2026, p. 4</a></span>)</span>
