@@ -1,9 +1,15 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// LXGW WenKai has a warm, handwritten rhythm for Chinese text while the
+// system fallbacks keep the page readable if the web font is unavailable.
+$reading-font: "EB Garamond", "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "KaiTi", serif;
+$ui-font: "EB Garamond", "LXGW WenKai", "霞鹜文楷", "PingFang SC", "Microsoft YaHei", serif;
+
 body {
-  font-family:
-    "EB Garamond", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  font-family: $reading-font;
+  letter-spacing: 0.025em;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 h1,
@@ -15,8 +21,8 @@ h6,
 .page-title,
 .folder-container div > a,
 .folder-container div > button {
-  font-family:
-    "EB Garamond", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  font-family: $ui-font;
+  letter-spacing: 0.045em;
 }
 
 .page-title a,
@@ -24,25 +30,88 @@ h6,
 article h1,
 article h2,
 article h3 {
-  font-family:
-    "EB Garamond", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  font-family: $ui-font;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: 0.06em;
 }
 
 article {
-  text-align: justify; /* 两端对齐 */
-  text-justify: inter-word;
-  hyphens: auto; /* 自动断句 */
-  font-size: 1.1rem; /* 稍微加大字号，模仿论文观感 */
-  line-height: 1.7; /* 增加行间距 */
+  max-width: 48rem;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  hyphens: auto;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  letter-spacing: 0.025em;
+
+  p,
+  li {
+    margin-block: 0.9em;
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 1.5em;
+  }
+
+  a {
+    letter-spacing: 0.035em;
+    text-underline-offset: 0.18em;
+  }
+
+  blockquote {
+    padding: 0.8rem 1.2rem;
+    border-left-width: 4px;
+    border-radius: 0 10px 10px 0;
+    background: color-mix(in srgb, var(--highlight) 70%, var(--light));
+  }
 }
 
-// 模拟 LaTeX 定理环境的简单样式
+// A quiet card treatment for theorem/callout-like notes.
 .theorem {
-  margin: 1em 0;
-  padding: 1em;
+  margin: 1.5em 0;
+  padding: 1rem 1.2rem;
   border-left: 3px solid var(--secondary);
   background-color: var(--highlight);
+  border-radius: 0 10px 10px 0;
   font-style: italic;
+}
+
+.page-title,
+.article-title {
+  text-wrap: balance;
+}
+
+.page-title {
+  font-size: 1.35rem;
+}
+
+.page-title a,
+.explorer button,
+.explorer a,
+.search-button,
+.darkmode,
+.readermode {
+  letter-spacing: 0.04em;
+}
+
+hr {
+  opacity: 0.7;
+  margin-block: 2.5rem;
+}
+
+@media all and (max-width: 800px) {
+  body {
+    letter-spacing: 0.018em;
+  }
+
+  article {
+    font-size: 1.04rem;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  .article-title {
+    letter-spacing: 0.04em;
+  }
 }
