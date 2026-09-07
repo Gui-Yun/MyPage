@@ -16,6 +16,7 @@ This site collects research logs, course notes, technical documentation, and sma
 - [[research-logs/index|Research Logs]]
 - [[study-notes/index|Study Notes]]
 - [[technical-docs/index|Technical Docs]]
+- [[daily-information/index|每日信息 · 科研与科技晨报]]
 
 ### Recent Threads
 
