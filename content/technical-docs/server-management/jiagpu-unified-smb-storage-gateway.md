@@ -52,13 +52,13 @@ flowchart LR
 
 ## 🗂️ SMB 共享映射
 
-| SMB 共享 | 数据来源 | `.42` 上的路径 | 说明 |
-| --- | --- | --- | --- |
-| `all_data` | BeeGFS 公共数据 | `/beegfs_hdd/data/nfs_share/share/micelab/all_data` | 公共共享 |
-| `ssd_data_gpu1` | `.40` 本机 SSD | `/srv/remote/jiagpu1/ssd_data` | 新增共享 |
-| `ssd_data_gpu2` | `.41` 本机 SSD | `/srv/remote/jiagpu2/ssd_data` | 替代旧 CIFS 转发 |
-| `ssd_data_gpu3` | `.42` 本机 SSD | `/nvmessd/docker/volumes/mice_data/_data` | 规范名称 |
-| `ssd_data` | `.42` 本机 SSD | `/nvmessd/docker/volumes/mice_data/_data` | 保留旧客户端兼容性 |
+| SMB 共享        | 数据来源        | `.42` 上的路径                                      | 说明               |
+| --------------- | --------------- | --------------------------------------------------- | ------------------ |
+| `all_data`      | BeeGFS 公共数据 | `/beegfs_hdd/data/nfs_share/share/micelab/all_data` | 公共共享           |
+| `ssd_data_gpu1` | `.40` 本机 SSD  | `/srv/remote/jiagpu1/ssd_data`                      | 新增共享           |
+| `ssd_data_gpu2` | `.41` 本机 SSD  | `/srv/remote/jiagpu2/ssd_data`                      | 替代旧 CIFS 转发   |
+| `ssd_data_gpu3` | `.42` 本机 SSD  | `/nvmessd/docker/volumes/mice_data/_data`           | 规范名称           |
+| `ssd_data`      | `.42` 本机 SSD  | `/nvmessd/docker/volumes/mice_data/_data`           | 保留旧客户端兼容性 |
 
 新接入建议统一使用：
 
@@ -188,11 +188,11 @@ samba                                     running healthy
 
 旧配置仍保留：
 
-| 项目 | 位置或名称 |
-| --- | --- |
-| 旧 Samba 容器 | `samba-pre-storage-migration-20260819` |
-| 回滚脚本 | `/root/codex-storage-migration-20260819/rollback-to-pre-migration-samba` |
-| 三台主机配置备份 | `/root/codex-storage-migration-20260819` |
+| 项目             | 位置或名称                                                               |
+| ---------------- | ------------------------------------------------------------------------ |
+| 旧 Samba 容器    | `samba-pre-storage-migration-20260819`                                   |
+| 回滚脚本         | `/root/codex-storage-migration-20260819/rollback-to-pre-migration-samba` |
+| 三台主机配置备份 | `/root/codex-storage-migration-20260819`                                 |
 
 在 `.42` 执行回滚：
 
