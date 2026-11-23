@@ -1,6 +1,6 @@
 ---
 title: "Fragments"
-modified: 2026-05-21
+modified: 2026-11-22
 ---
 
 Short-form notes, loose thoughts, and unfinished ideas.
@@ -16,11 +16,22 @@ Short-form notes, loose thoughts, and unfinished ideas.
 ## 科学与方法
 
 - [[科学需要解释，但解释不是科学|科学需要解释，但解释不是科学]]
+- [[文献阅读笔记|文献阅读笔记：如何用行为实验回答研究问题]]
 
 ## 思想实验与设定
 
-- [[灵感碎片：反因果的闭环稳态|灵感碎片：反因果的闭环稳态]]
+- [[反因果的闭环稳态|灵感碎片：反因果的闭环稳态]]
+- [[Gal-LLM|Gal-LLM]]
+- [[鱼|鱼]]
 
-## 灵感碎片
+## 篮球
 
-- [[灵感碎片：传奇的考卷|灵感碎片：传奇的考卷]]
+- [[代价|灵感碎片：传奇的考卷]]
+- [[MJ|MJ]]
+
+## 随笔
+
+- [[文字 & 思考|文字 & 思考]]
+- [[上午|上午]]
+- [[Jonah complex|Jonah complex]]
+- [[Cyber Sicko|Cyber Sicko]]

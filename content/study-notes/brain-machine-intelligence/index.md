@@ -14,6 +14,7 @@ Course experiment notes on neural computation, cognitive tasks, and learning sys
 
 ## Topics
 
+- [[study-notes/brain-machine-intelligence/connectome-driven-agents|当果蝇连接组进入 Minecraft：从展示性工程到可检验的类脑控制]]
 - Spiking neural networks
 - Multitask and continual learning
 - Reinforcement learning
